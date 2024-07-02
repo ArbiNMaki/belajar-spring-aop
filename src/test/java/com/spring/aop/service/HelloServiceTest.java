@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(classes = HelloService.class)
+@SpringBootTest
 public class HelloServiceTest {
 
     @Autowired
@@ -13,7 +13,7 @@ public class HelloServiceTest {
 
     @Test
     void helloService() {
-        Assertions.assertEquals("Hello Eko", helloService.hello("Eko"));
-        Assertions.assertEquals("Bye Eko", helloService.bye("Eko"));
+        Assertions.assertEquals("Hello Arbi", helloService.hello("Arbi"));
+        Assertions.assertEquals("Bye Arbi", helloService.bye("Arbi"));
     }
 }

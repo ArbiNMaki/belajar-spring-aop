@@ -1,14 +1,23 @@
 package com.spring.aop.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-@Component
 @Aspect
+@Component
+@Slf4j
 public class LogAspect {
 
-    @Pointcut("target(com.spring.aop.service.HelloService)")
+    @Pointcut("execution(* com.spring.aop.service.HelloService.*(..))")
     public void helloServiceMethod() {
+        // Pointcut untuk semua metode dalam HelloService
+    }
+
+    @Before("helloServiceMethod()")
+    public void beforeHelloServiceMethod() {
+        log.info("Before HelloService Method");
     }
 }
